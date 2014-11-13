@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="ISO-8859-1"?><rss version="2.0">
+  <channel>
+    <title>South West Trains JourneyCheck Feeds</title>
+    <titleLink>http://www.journeycheck.com/SW</titleLink>
+    <logoLink>/resources/southwesttrains/web/images/logo.gif</logoLink>
+    <description>Check for problems on your route</description>
+    <pubDate>Thu, 7 Aug 2014 14:58:09 +0100</pubDate>
+    <ttl>10</ttl>
+
+    <item>
+      <title>Line problem: at Cosham.</title>
+      <description>Owing to signalling problems at Cosham trains have to run at reduced speed on London-bound lines.</description>
+      <link>http://www.journeycheck.com/southwesttrains/route?id=3006_1296886874&amp;action=search&amp;from=&amp;to=&amp;savedRoute=&amp;formTubeUpdateType=&amp;formTubeUpdateLocation=&amp;formTubeUpdatePeriod=#3006_1296886874</link>
+      <pubDate>08:50:37 22/01/2013</pubDate>
+      <category></category>
+    </item>
+    <item>
+      <title>Line problem: at Vauxhall.</title>
+      <description>Following a problem near the railway at Vauxhall all lines are now open.</description>
+      <link>http://www.journeycheck.com/southwesttrains/route?id=3006_1296886467&amp;action=search&amp;from=WAT&amp;to=TWI&amp;savedRoute=&amp;formTubeUpdateType=&amp;formTubeUpdateLocation=&amp;formTubeUpdatePeriod=#3006_1296886467</link>
+      <pubDate>11:12:51 16/01/2013</pubDate>
+      <category></category>
+    </item>
+    <item>
+      <title>Line problem: between Eastleigh and Fareham.</title>
+      <description>Owing to poor weather conditions between Eastleigh and Fareham fewer trains are able to run on all lines.</description>
+      <link>http://www.journeycheck.com/southwesttrains/route?id=3006_1296886597&amp;action=search&amp;from=&amp;to=&amp;savedRoute=&amp;formTubeUpdateType=&amp;formTubeUpdateLocation=&amp;formTubeUpdatePeriod=#3006_1296886597</link>
+      <pubDate>10:24:44 18/01/2013</pubDate>
+      <category></category>
+    </item>
+    <item>
+      <title>Line problem: between Surbiton and Hampton Court.</title>
+      <description>Owing to poor weather conditions between Surbiton and Hampton Court all lines are blocked.</description>
+      <link>http://www.journeycheck.com/southwesttrains/route?id=3006_1296886787&amp;action=search&amp;from=&amp;to=&amp;savedRoute=&amp;formTubeUpdateType=&amp;formTubeUpdateLocation=&amp;formTubeUpdatePeriod=#3006_1296886787</link>
+      <pubDate>09:16:25 21/01/2013</pubDate>
+      <category></category>
+    </item>
+    <item>
+      <title>Line problem: between Eastleigh and Romsey.</title>
+      <description>Owing to signalling problems between Eastleigh and Romsey all lines are blocked.</description>
+      <link>http://www.journeycheck.com/southwesttrains/route?id=3006_1296852854&amp;action=search&amp;from=&amp;to=&amp;savedRoute=&amp;formTubeUpdateType=&amp;formTubeUpdateLocation=&amp;formTubeUpdatePeriod=#3006_1296852854</link>
+      <pubDate>13:09:22 07/11/2011</pubDate>
+      <category></category>
+    </item>
+        
+  </channel>
+</rss>

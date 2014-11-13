@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="ISO-8859-1"?><rss version="2.0">
+  <channel>
+    <title>South West Trains JourneyCheck Feeds</title>
+    <titleLink>http://www.journeycheck.com/SW</titleLink>
+    <logoLink>/resources/southwesttrains/web/images/logo.gif</logoLink>
+    <description>Check for problems on your route</description>
+    <pubDate>Thu, 7 Aug 2014 14:58:09 +0100</pubDate>
+    <ttl>10</ttl>
+
+
+    <item>
+      <title>Leaf Fall Timetable Alterations</title>
+      <description>From 2 October until 10 December 2011, South West Trains will be operating a Leaf Fall timetable on some routes with some services departing a few minutes earlier.</description>
+      <link>http://www.journeycheck.com/southwesttrains/route?id=3006_1296851482&amp;action=search&amp;from=&amp;to=&amp;savedRoute=&amp;formTubeUpdateType=&amp;formTubeUpdateLocation=&amp;formTubeUpdatePeriod=#3006_1296851482</link>
+      <pubDate>03:33:32 15/10/2011</pubDate>
+      <category/>
+    </item>
+
+     <item>
+      <title>Normal Weekday Timetable - Tuesday 22 January</title>
+      <description>We will run a normal weekday service on Tuesday 22 January. All lines will reopen with trains calling at all stations. In order for this to happen it is necessary to run test trains over lines which have been closed over the last few days due to icy weather conditions.</description>
+      <link>http://www.journeycheck.com/southwesttrains/route?id=3006_1296886841&amp;action=search&amp;from=&amp;to=&amp;savedRoute=&amp;formTubeUpdateType=&amp;formTubeUpdateLocation=&amp;formTubeUpdatePeriod=#3006_1296886841</link>
+      <pubDate>03:06:03 22/01/2013</pubDate>
+      <category></category>
+    </item>
+    
+    <item>
+      <title>Customer Information Systems fault</title>
+      <description>Customer Information Systems fault</description>
+      <link>http://www.journeycheck.com/southwesttrains/route?id=1296929108&amp;action=search&amp;from=KNG&amp;to=TED&amp;savedRoute=&amp;formTubeUpdateType=&amp;formTubeUpdateLocation=General Updates&amp;formTubeUpdatePeriod=#1296929108</link>
+      <pubDate>15:04:27 07/08/2014</pubDate>
+      <category/>
+    </item>
+    
+  </channel>
+</rss>

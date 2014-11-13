@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="ISO-8859-1"?><rss version="2.0">
+  <channel>
+    <title>South West Trains JourneyCheck Feeds</title>
+    <titleLink>http://www.journeycheck.com/SW</titleLink>
+    <logoLink>/resources/southwesttrains/web/images/logo.gif</logoLink>
+    <description>Check for problems on your route</description>
+    <pubDate>Thu, 7 Aug 2014 14:58:09 +0100</pubDate>
+    <ttl>10</ttl>
+
+
+    <item>
+      <title>16:06 London Waterloo to Hampton Court due 16:44</title>
+      <description>This train will no longer call at Raynes Park, New Malden and Berrylands.</description>
+      <link>http://www.journeycheck.com/southwesttrains/route?id=12969292072J45W13536080814&amp;action=search&amp;from=&amp;to=&amp;savedRoute=&amp;formTubeUpdateType=&amp;formTubeUpdateLocation=Service Updates&amp;formTubeUpdatePeriod=#12969292072J45W13536080814</link>
+      <pubDate>14:18:36 08/08/2014</pubDate>
+      <category/>
+    </item>
+    <item>
+      <title>08:53 Windsor &amp; Eton Riverside to London Waterloo due 09:51</title>
+      <description>This train is being delayed at Richmond.</description>
+      <link>http://www.journeycheck.com/southwesttrains/route?id=12969298732U20W15035180814&amp;action=search&amp;from=&amp;to=&amp;savedRoute=&amp;formTubeUpdateType=&amp;formTubeUpdateLocation=Service Updates&amp;formTubeUpdatePeriod=#12969298732U20W15035180814</link>
+      <pubDate>09:39:39 18/08/2014</pubDate>
+      <category/>
+    </item>
+    <item>
+      <title>12:20 London Waterloo to Exeter St Davids due 15:44</title>
+      <description>This train has been delayed at Salisbury and is now 17 minutes late.</description>
+      <link>http://www.journeycheck.com/southwesttrains/route?id=12969291051L33W10917070814&amp;action=search&amp;from=&amp;to=&amp;savedRoute=&amp;formTubeUpdateType=&amp;formTubeUpdateLocation=Service Updates&amp;formTubeUpdatePeriod=#12969291051L33W10917070814</link>
+      <pubDate>14:06:05 07/08/2014</pubDate>
+      <category/>
+    </item>
+    <item>
+      <title>09:39 London Waterloo to Poole due 12:55</title>
+      <description>This train will be starting late from London Waterloo and is expected to be 45 minutes late.</description>
+      <link>http://www.journeycheck.com/southwesttrains/route?id=12969371062B23W11630131114&amp;action=search&amp;from=&amp;to=&amp;savedRoute=&amp;formTubeUpdateType=&amp;formTubeUpdateLocation=Service Updates&amp;formTubeUpdatePeriod=#12969371062B23W11630131114</link>
+      <pubDate>10:14:09 13/11/2014</pubDate>
+      <category/>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="ISO-8859-1"?><rss version="2.0">
+  <channel>
+    <title>South West Trains JourneyCheck Feeds</title>
+    <titleLink>http://www.journeycheck.com/SW</titleLink>
+    <logoLink>/resources/southwesttrains/web/images/logo.gif</logoLink>
+    <description>Check for problems on your route</description>
+    <pubDate>Thu, 13 Nov 2014 11:40:34 +0000</pubDate>
+    <ttl>10</ttl>
+    <item>
+      <title>No Current Updates</title>
+      <description>There are currently no reported updates on your route.</description>
+      <pubDate>11:40:34 13/11/2014</pubDate>
+      <category>No Updates</category>
+    </item>
+  </channel>
+</rss>

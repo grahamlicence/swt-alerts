@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="ISO-8859-1"?><rss version="2.0">
+  <channel>
+    <title>South West Trains JourneyCheck Feeds</title>
+    <titleLink>http://www.journeycheck.com/SW</titleLink>
+    <logoLink>/resources/southwesttrains/web/images/logo.gif</logoLink>
+    <description>Check for problems on your route</description>
+    <pubDate>Thu, 7 Aug 2014 14:58:09 +0100</pubDate>
+    <ttl>10</ttl>
+
+
+    <item>
+      <title>New Milton Facilities: Hazard to Passengers</title>
+      <description>At New Milton station.</description>
+      <link>http://www.journeycheck.com/southwesttrains?rssId=1296933067</link>
+      <pubDate>11:40:16 03/10/2014</pubDate>
+      <category>Station Updates</category>
+    </item>
+    <item>
+      <title>Raynes Park Facilities: Various changes</title>
+      <description>At Raynes Park station.</description>
+      <link>http://www.journeycheck.com/southwesttrains?rssId=1296933558</link>
+      <pubDate>14:10:05 08/10/2014</pubDate>
+      <category>Station Updates</category>
+    </item>
+    <item>
+      <title>Axminster Facilities: Ticket Vending Machine problem</title>
+      <description>At Axminster station.</description>
+      <link>http://www.journeycheck.com/southwesttrains?rssId=1296936988</link>
+      <pubDate>09:47:14 12/11/2014</pubDate>
+      <category>Station Updates</category>
+    </item>
+    <item>
+      <title>Bursledon Facilities: Lighting Problem</title>
+      <description>At Bursledon station.</description>
+      <link>http://www.journeycheck.com/southwesttrains?rssId=1296936853</link>
+      <pubDate>20:05:32 10/11/2014</pubDate>
+      <category>Station Updates</category>
+    </item>
+    <item>
+      <title>Fareham Facilities: Toilets out of order</title>
+      <description>At Fareham station.</description>
+      <link>http://www.journeycheck.com/southwesttrains?rssId=1296936764</link>
+      <pubDate>19:50:02 09/11/2014</pubDate>
+      <category>Station Updates</category>
+    </item>
+    <item>
+      <title>Haslemere Facilities: Lifts out of order</title>
+      <description>At Haslemere station.</description>
+      <link>http://www.journeycheck.com/southwesttrains?rssId=1296936985</link>
+      <pubDate>09:18:12 12/11/2014</pubDate>
+      <category>Station Updates</category>
+    </item>
+    <item>
+      <title>Horsley Facilities: Ticket Office Closure</title>
+      <description>At Horsley station.</description>
+      <link>http://www.journeycheck.com/southwesttrains?rssId=1296936969</link>
+      <pubDate>07:11:01 12/11/2014</pubDate>
+      <category>Station Updates</category>
+    </item>
+    <item>
+      <title>Twickenham Facilities: No step free access</title>
+      <description>At Twickenham station.</description>
+      <link>http://www.journeycheck.com/southwesttrains?rssId=3006_1296885278</link>
+      <pubDate>14:54:19 07/01/2013</pubDate>
+      <category>Station Updates</category>
+    </item>
+
+  </channel>
+</rss>

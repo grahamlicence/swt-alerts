@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="ISO-8859-1"?><rss version="2.0">
+  <channel>
+    <title>South West Trains JourneyCheck Feeds</title>
+    <titleLink>http://www.journeycheck.com/SW</titleLink>
+    <logoLink>/resources/southwesttrains/web/images/logo.gif</logoLink>
+    <description>Check for problems on your route</description>
+    <pubDate>Thu, 7 Aug 2014 14:58:09 +0100</pubDate>
+    <ttl>10</ttl>
+
+    <item>
+      <title>Cancellations to services between Richmond and Barnes</title>
+      <description>Owing to a problem at a level crossing between Richmond and Barnes fewer trains are able to run on all lines.</description>
+      <link>http://www.journeycheck.com/southwesttrains/route?id=1296924088&amp;action=search&amp;from=&amp;to=&amp;savedRoute=&amp;formTubeUpdateType=&amp;formTubeUpdateLocation=Line Updates&amp;formTubeUpdatePeriod=#1296924088</link>
+      <pubDate>15:53:41 10/06/2014</pubDate>
+      <category/>
+    </item>
+    <item>
+      <title>14:32 Woking to London Waterloo due 15:22</title>
+      <description>This train will be cancelled.</description>
+      <link>http://www.journeycheck.com/southwesttrains/route?id=12969292102F42W12664080814&amp;action=search&amp;from=&amp;to=&amp;savedRoute=&amp;formTubeUpdateType=&amp;formTubeUpdateLocation=Service Updates&amp;formTubeUpdatePeriod=#12969292102F42W12664080814</link>
+      <pubDate>14:39:06 08/08/2014</pubDate>
+      <category/>
+    </item>
+
+    <item>
+      <title>15:47 Salisbury to London Waterloo due 17:19</title>
+      <description>This train will be terminated at Basingstoke.</description>
+      <link>http://www.journeycheck.com/southwesttrains/route?id=12969291031L54W10970070814&amp;action=search&amp;from=&amp;to=&amp;savedRoute=&amp;formTubeUpdateType=&amp;formTubeUpdateLocation=Service Updates&amp;formTubeUpdatePeriod=#12969291031L54W10970070814</link>
+      <pubDate>12:47:38 07/08/2014</pubDate>
+      <category/>
+    </item>
+    <item>
+      <title>Cancellations to services between Winchester and Basingstoke</title>
+      <description>Owing to signalling problems between Winchester and Basingstoke fewer trains are able to run on London bound lines.</description>
+      <link>http://www.journeycheck.com/southwesttrains/route?id=1296937060&amp;action=search&amp;from=&amp;to=&amp;savedRoute=&amp;formTubeUpdateType=&amp;formTubeUpdateLocation=Line Updates&amp;formTubeUpdatePeriod=#1296937060</link>
+      <pubDate>11:56:58 13/11/2014</pubDate>
+      <category/>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="ISO-8859-1"?><rss version="2.0">
+  <channel>
+    <title>South West Trains JourneyCheck Feeds</title>
+    <titleLink>http://www.journeycheck.com/SW</titleLink>
+    <logoLink>/resources/southwesttrains/web/images/logo.gif</logoLink>
+    <description>Check for problems on your route</description>
+    <pubDate>Thu, 7 Aug 2014 14:58:09 +0100</pubDate>
+    <ttl>10</ttl>
+
+
+    <item>
+      <title>South West Trains - Adverse Weather Timetable</title>
+      <description>On Friday 18th January 2013 South West Trains will be operating an Adverse Weather Timetable. This will allow us to run as many trains as possible during the current bad weather. Most lines will be open with revised timetables however some stations will not be served. Unfortunately it will not be possible to run replacement bus services to the stations with no service.</description>
+      <link>http://www.journeycheck.com/southwesttrains/route?id=3006_1296886278&amp;action=search&amp;from=&amp;to=&amp;savedRoute=&amp;formTubeUpdateType=&amp;formTubeUpdateLocation=&amp;formTubeUpdatePeriod=#3006_1296886278</link>
+      <pubDate>12:40:22 17/01/2013</pubDate>
+      <category/>
+    </item>
+    <item>
+      <title>13:45 London Waterloo to Reading due 15:16</title>
+      <description>This train will now run as scheduled.</description>
+      <link>http://www.journeycheck.com/southwesttrains/route?id=3006_1296886624-1-SW-A26471-18-01-2013&amp;action=search&amp;from=WAT&amp;to=TWI&amp;savedRoute=&amp;formTubeUpdateType=&amp;formTubeUpdateLocation=&amp;formTubeUpdatePeriod=#3006_1296886624-1-SW-A26471-18-01-2013</link>
+      <pubDate>15:15:30 18/01/2013</pubDate>
+      <category/>
+    </item>
+    <item>
+      <title>Alterations to services at New Malden</title>
+      <description>Following signalling problems at New Malden all lines are now open.</description>
+      <link>http://www.journeycheck.com/southwesttrains/route?id=1296929202&amp;action=search&amp;from=&amp;to=&amp;savedRoute=&amp;formTubeUpdateType=&amp;formTubeUpdateLocation=Line Updates&amp;formTubeUpdatePeriod=#1296929202</link>
+      <pubDate>15:01:35 08/08/2014</pubDate>
+      <category/>
+    </item>
+    <item>
+      <title>08:12 Reading to London Waterloo due 09:34</title>
+      <description>First class not available. Toilets are not available.</description>
+      <link>http://www.journeycheck.com/southwesttrains/route?id=12969298412C20W11776180814&amp;action=search&amp;from=&amp;to=&amp;savedRoute=&amp;formTubeUpdateType=&amp;formTubeUpdateLocation=Service Updates&amp;formTubeUpdatePeriod=#12969298412C20W11776180814</link>
+      <pubDate>04:26:35 18/08/2014</pubDate>
+      <category/>
+    </item>
+
+    <item>
+      <title>14:20 Weymouth to London Waterloo due 17:20</title>
+      <description>This train will call additionally at Woking.</description>
+      <link>http://www.journeycheck.com/southwesttrains/route?id=12969291021W64W11508070814&amp;action=search&amp;from=&amp;to=&amp;savedRoute=&amp;formTubeUpdateType=&amp;formTubeUpdateLocation=Service Updates&amp;formTubeUpdatePeriod=#12969291021W64W11508070814</link>
+      <pubDate>12:46:50 07/08/2014</pubDate>
+      <category/>
+    </item>
+
+    <item>
+      <title>23:36 London Waterloo to Hampton Court due 00:12</title>
+      <description>Will be formed of 4 coaches instead of 8.</description>
+      <link>http://www.journeycheck.com/southwesttrains/route?id=12969291042J75W13614070814&amp;action=search&amp;from=&amp;to=&amp;savedRoute=&amp;formTubeUpdateType=&amp;formTubeUpdateLocation=Service Updates&amp;formTubeUpdatePeriod=#12969291042J75W13614070814</link>
+      <pubDate>12:52:49 07/08/2014</pubDate>
+      <category/>
+    </item>
+    <item>
+      <title>17:50 London Waterloo to Yeovil Junction due 20:16</title>
+      <description>This train will be started from Basingstoke.</description>
+      <link>http://www.journeycheck.com/southwesttrains/route?id=12969291031L55W10972070814&amp;action=search&amp;from=&amp;to=&amp;savedRoute=&amp;formTubeUpdateType=&amp;formTubeUpdateLocation=Service Updates&amp;formTubeUpdatePeriod=#12969291031L55W10972070814</link>
+      <pubDate>12:47:38 07/08/2014</pubDate>
+      <category/>
+    </item>
+    
+  </channel>
+</rss>
