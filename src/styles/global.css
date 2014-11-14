@@ -1,0 +1,178 @@
+
+body {
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+    font-size: 75%;
+    min-width:357px;
+}
+
+h3 {
+    font-size: 15px;
+    margin: 0 0 3px;
+    padding: 3px 0 0;
+    border-top: solid 1px #999;
+}
+p {
+    font-size: 13px;
+    margin: 0 0 3px;
+}
+strong {
+    display: block;
+}
+.pubdate img {
+    height: 10px;
+}
+.error-message {
+    color: #f00;
+    font-size: 12px;
+}
+.preferences {
+    background: rgba(231, 231, 231, 0.81);
+    display: none;
+}
+.preferences.open {
+    display: block;
+}
+
+.btn {
+    display: inline-block;
+    margin: 0 0 0 5px;
+    cursor: pointer;
+    text-indent: -9999px;
+}
+.btn-preferences {
+    background: url(../images/edit.png);
+    width: 10px;
+    height: 10px;
+    background-size: contain;
+}
+.btn-switch {
+    background: url(../images/switch.png);
+    width: 22px;
+    height: 13px;
+}
+#fromshort,
+#toshort {
+    display: none;
+}
+.row {
+    clear: left;
+    margin: 0 0 10px;
+    position: relative;
+}
+.row label {
+    width: 28px;
+    text-align: right;
+    display: inline-block;
+    font-size: 13px;
+}
+.row.checkbox  {
+    overflow: hidden;
+}
+.row.checkbox input {
+    margin: 1px 5px 0 0;
+    display: inline-block;
+    float: left;
+}
+.row.checkbox label {
+    width: 200px;
+    text-align: left;
+    padding: 0 0 3px;
+    float: left;
+}
+#to, #from {
+    width: 235px;
+}
+.btn-close,
+.btn-clear,
+.popupclosebtn { 
+    background: url(../images/close.png);
+    background-size: contain;
+    float: right;
+    text-indent: -9999px;
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    cursor: pointer;
+}
+.btn-close {
+    position: relative;
+    z-index: 10;
+}
+.btn-clear {
+    position: absolute;
+    right: 85px;
+    top: 3px;
+}
+
+.save {
+    cursor: pointer;
+}
+
+.main {
+    overflow: hidden;
+}
+.update-content {
+    background: rgba(88, 170, 190, 0.06);
+    max-height: 300px;
+    overflow: auto;
+    width: 100%;
+}
+.content {
+    background: rgba(88, 170, 190, 0.26);
+    margin: -3px 0 0;
+    padding: 0;
+    /*-o-transition:.5s;
+    -ms-transition:.5s;
+    -moz-transition:.5s;
+    -webkit-transition:.5s;
+    transition: .5s; transition breaking on content change*/
+}
+.content:hover {
+    /*background: rgba(88, 170, 190, 0.16);*/
+}
+.no-issues {
+    background: rgba(88, 170, 190, 0.06);
+}
+.content h3 {
+    padding: 3px 5px 0;
+}
+.content p {
+    padding: 0 5px 3px;
+}
+.preferences-wrapper {
+    max-height: 200px;
+    overflow: auto;
+    margin: -3px 0 0;
+    background: #fff;
+    position: relative;
+}
+.preferences-change .preferences-wrapper {
+    max-height: 330px;
+}
+.preferences-change .update-content {
+    max-height: 150px;
+}
+.autocomplete {
+    max-height: 70px;
+    overflow: auto;
+    background: rgba(88, 170, 190, 0.06);
+}
+.stationauto {
+    cursor: pointer;
+}
+/* scrollbar */
+::-webkit-scrollbar {
+    width: 6px;
+    background: rgba(88, 170, 190, 0.06);
+}
+::-webkit-scrollbar-thumb {
+    background: rgba(28, 142, 170, 0.4);
+    -webkit-border-radius: 1ex;
+    -webkit-box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.75);
+}
+::-webkit-scrollbar-corner {
+    background: #fff;
+}
+:hover::-webkit-scrollbar-thumb {
+    background: rgba(28, 142, 170, 0.8);
+}

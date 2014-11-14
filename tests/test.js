@@ -5,17 +5,23 @@
 // SWT.updates.general          Adverse Weather Timetable/We will run a normal weekday service/Customer Information Systems fault
 // SWT.updates.line             Line problem/problem at a level crossing
 
-
 describe("Preferences buttons", function() {
+    var e = jasmine.createSpyObj('e', [ 'preventDefault' ]);
+    var HTMLElements = [];
+    document.querySelectorAll = jasmine.createSpy('HTML Element').and.callFake(function(ID) {
+          var newElement = document.createElement('div');
+          HTMLElements.push(newElement);
+       return HTMLElements;
+    });
+
     SWT.preferences.open = false;
 
     it("clicking the edit button should show the preferences form", function() {
-        SWT.preferences.toggle();
+        SWT.preferences.toggle(e);
         expect(SWT.preferences.open).toBe(true);
     });
-
     it("clicking the close button should hide the form", function() {
-        SWT.preferences.toggle();
+        SWT.preferences.toggle(e);
         expect(SWT.preferences.open).not.toBe(true);
     });
 

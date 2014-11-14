@@ -42,6 +42,23 @@
       <pubDate>13:09:22 07/11/2011</pubDate>
       <category></category>
     </item>
-        
+
+    
+    <item>
+      <title>Alterations to services between Fulwell and Shepperton</title>
+      <description>Owing to flooding between Fulwell and Shepperton all lines are blocked.</description>
+      <link>http://www.journeycheck.com/southwesttrains/route?id=1296937233&amp;action=search&amp;from=&amp;to=&amp;savedRoute=&amp;formTubeUpdateType=&amp;formTubeUpdateLocation=Line Updates&amp;formTubeUpdatePeriod=#1296937233</link>
+      <pubDate>09:23:29 14/11/2014</pubDate>
+      <category/>
+    </item>
+    
+    <item>
+      <title>Alterations to services between Fulwell and Shepperton</title>
+      <description>Following flooding between Fulwell and Shepperton all lines have now reopened.</description>
+      <link>http://www.journeycheck.com/southwesttrains/route?id=1296937233&amp;action=search&amp;from=&amp;to=&amp;savedRoute=&amp;formTubeUpdateType=&amp;formTubeUpdateLocation=Line Updates&amp;formTubeUpdatePeriod=#1296937233</link>
+      <pubDate>12:01:43 14/11/2014</pubDate>
+      <category/>
+    </item>
+
   </channel>
 </rss>
