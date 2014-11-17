@@ -118,17 +118,9 @@ strong {
     width: 100%;
 }
 .content {
-    background: rgba(88, 170, 190, 0.26);
+    /*background: rgba(88, 170, 190, 0.26);*/
     margin: -3px 0 0;
     padding: 0;
-    /*-o-transition:.5s;
-    -ms-transition:.5s;
-    -moz-transition:.5s;
-    -webkit-transition:.5s;
-    transition: .5s; transition breaking on content change*/
-}
-.content:hover {
-    /*background: rgba(88, 170, 190, 0.16);*/
 }
 .no-issues {
     background: rgba(88, 170, 190, 0.06);

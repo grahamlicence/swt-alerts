@@ -13,6 +13,13 @@ SWT.preferences = {
         }
         this.open = !this.open;
     },
+
+    // add the data feed date
+    setDate: function () {
+        var date = new Date(SWT.data.date);
+        document.querySelectorAll('.pubdate')[0].innerHTML = date.toLocaleTimeString();
+    },
+
     init: function () {
         var toggleBtn = document.querySelectorAll('.js-preferences')[0],
             switchBtn = document.querySelectorAll('.js-switch')[0],
@@ -20,7 +27,16 @@ SWT.preferences = {
 
         toggleBtn.addEventListener('click', this.toggle);
         closeBtn.addEventListener('click', this.toggle);
+        
+        SWT.global.sub('dataupdate', function () {
+            SWT.preferences.setDate();
+        });
     }
+};
+
+// Hide messages using sessionStorage
+SWT.hideNotification = {
+
 };
 
 // Initialise popup
