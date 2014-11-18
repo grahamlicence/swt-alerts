@@ -100,7 +100,9 @@ var SWT = {
         general: false,
         generalItems: [],
         line: false,
-        lineItems: []
+        lineItems: [],
+        station: false,
+        stationItems: []
     },
 
     title: 'Good Service',
@@ -161,24 +163,99 @@ var SWT = {
     },
 
     categoriseItem: function (item) {
-        // If it's given a category it's easier
-        switch (item.category) {
-            case 'Service Updates':
-            break;
-            case 'Station Updates':
-            break;
-            case 'General Updates':
-            break;
-            case 'Line Updates':
-            break;
+
+        function manualCheck () {
+            var title = item.title,
+                desc = item.description;
+            
+            switch (true) {
+                case title.contains('Delays'):
+                case desc.contains('delayed'):
+                    SWT.service.delays = true;
+                    SWT.service.delaysItems.push(item);
+                break;
+                
+                case title.contains('Cancellations'):
+                case desc.contains('terminated'):
+                case desc.contains('cancelled'):
+                    SWT.service.cancellations = true;
+                    SWT.service.cancellationsItems.push(item);
+                break;
+                
+                case title.contains('Adverse Weather Timetable'):
+                case desc.contains('This train will now run as scheduled'):
+                case desc.contains('all lines are now open'):
+                case desc.contains('all lines have now reopened'):
+                case desc.contains('First class not available'):
+                case desc.contains('Toilets are not available'):
+                case desc.contains('will call additionally'):
+                case desc.contains('coaches instead of'):
+                case desc.contains('will be started from'):
+                    SWT.service.notification = true;
+                    SWT.service.notificationItems.push(item);
+                break;
+                
+                case desc.contains('some lines are blocked'):
+                case desc.contains('all lines are blocked'):
+                case desc.contains('fewer trains are able to run'):
+                case desc.contains('trains have to run at reduced speed'):
+                    SWT.updates.line = true;
+                    SWT.updates.lineItems.push(item);
+                break;
+                
+                case title.contains('Leaf Fall Timetable Alterations'):
+                case title.contains('Normal Weekday Timetable'):
+                case title.contains('Customer Information Systems'):
+                    SWT.updates.general = true;
+                    SWT.updates.generalItems.push(item);
+                break;
+
+                // just in case we don't know what it is
+                default:
+                    SWT.service.notification = true;
+                    SWT.service.notificationItems.push(item);
+            }
         }
-        // Sometimes data comes back with no category, so we have to second guess what the issue is
+
+        function categoryCheck () {
+            switch (true) {
+                case item.category.contains('Service Updates'):
+                    
+                    // check if delays or cancellations
+                    manualCheck();
+                break;
+
+                case item.category.contains('Station Updates'):
+                    SWT.updates.station = true;
+                    SWT.updates.stationItems.push(item);
+                break;
+
+                case item.category.contains('General Updates'):
+                    SWT.updates.general = true;
+                    SWT.updates.generalItems.push(item);
+                break;
+
+                case item.category.contains('Line Updates'):
+                    SWT.updates.line = true;
+                    SWT.updates.lineItems.push(item);
+                break;
+            }
+        }
+
+        // If there is a category it's easier
+        if (item.category.length) {
+            categoryCheck();
+        } else {
+            // Sometimes data comes back with no category, so we have to second guess what the issue is
+            manualCheck();
+        }
     },
 
     // set status flags from data
     checkStatus: function () {
         var items = SWT.data.items;
         items.forEach(SWT.categoriseItem);
+        console.log(SWT)
     },
     
     init: function () {
@@ -194,7 +271,8 @@ var SWT = {
         
         // local testing
         // this.url = '../tests/data/notification.rss';
-        this.url = '../tests/data/general.rss';
+        // this.url = '../tests/data/general.rss';
+        this.url = '../tests/data/delays.rss';
 
         // setInterval(function() {
         //     requestFeed();
@@ -206,6 +284,9 @@ var SWT = {
     }
 
 };
+
+// add in a simple contains object
+String.prototype.contains = function(it) { return this.indexOf(it) != -1; };
 
 // Initialise background
 SWT.init();
