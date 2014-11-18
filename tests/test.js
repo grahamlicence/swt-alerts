@@ -106,23 +106,25 @@ describe("Status title", function() {
     var message = 'Good Service';
 
     it("should show Good service if no issues", function() {
+        SWT.updates.station = false;
         SWT.service.notification = false;
         SWT.service.delays = false;
         SWT.service.cancellations = false;
         SWT.updates.general = false;
         SWT.updates.line = false;
-        SWT.Status.setTitle();
+        SWT.setIcon();
         expect(SWT.title).toEqual(message);
     });
 
-    it("should show Service Change if updates.general or service.notification and no other issues", function() {
+    it("should show Service Announcement if updates.general or service.notification and no other issues", function() {
         message = 'Service Change';
+        SWT.updates.station = false;
         SWT.service.notification = true;
         SWT.service.delays = false;
         SWT.service.cancellations = false;
         SWT.updates.general = false;
         SWT.updates.line = false;
-        SWT.Status.setTitle();
+        SWT.setIcon();
         expect(SWT.title).toEqual(message);
 
         SWT.service.notification = false;
@@ -130,94 +132,100 @@ describe("Status title", function() {
         SWT.service.cancellations = false;
         SWT.updates.general = true;
         SWT.updates.line = false;
-        SWT.Status.setTitle();
+        SWT.setIcon();
         expect(SWT.title).toEqual(message);
     });
 
     it("should show Trains Delayed if service.delays and no other issues", function() {
         message = 'Trains Delayed';
+        SWT.updates.station = false;
         SWT.service.notification = false;
         SWT.service.delays = true;
         SWT.service.cancellations = false;
         SWT.updates.general = false;
         SWT.updates.line = false;
-        SWT.Status.setTitle();
+        SWT.setIcon();
         expect(SWT.title).toEqual(message);
     });
 
     it("should show Trains Delayed if service.delays and service.notification but no other issues", function() {
         message = 'Trains Delayed';
+        SWT.updates.station = false;
         SWT.service.notification = true;
         SWT.service.delays = true;
         SWT.service.cancellations = false;
         SWT.updates.general = false;
         SWT.updates.line = false;
-        SWT.Status.setTitle();
+        SWT.setIcon();
         expect(SWT.title).toEqual(message);
     });
 
     it("should show Trains Cancelled if service.cancellations and no other issues", function() {
         message = 'Trains Cancelled';
+        SWT.updates.station = false;
         SWT.service.notification = false;
         SWT.service.delays = false;
         SWT.service.cancellations = true;
         SWT.updates.general = false;
         SWT.updates.line = false;
-        SWT.Status.setTitle();
+        SWT.setIcon();
         expect(SWT.title).toEqual(message);
     });
 
     it("should show Trains Cancelled if service.cancellations and any combination of service.notification/service.delays and no other issues", function() {
         message = 'Trains Cancelled';
+        SWT.updates.station = false;
         SWT.service.notification = true;
         SWT.service.delays = true;
         SWT.service.cancellations = true;
         SWT.updates.general = false;
         SWT.updates.line = false;
-        SWT.Status.setTitle();
+        SWT.setIcon();
         expect(SWT.title).toEqual(message);
 
         SWT.service.notification = false;
         SWT.service.delays = true;
-        SWT.Status.setTitle();
+        SWT.setIcon();
         expect(SWT.title).toEqual(message);
 
         SWT.service.notification = true;
         SWT.service.delays = false;
-        SWT.Status.setTitle();
+        SWT.setIcon();
         expect(SWT.title).toEqual(message);
     });
 
     it("should show Line blocked if updates.line and no other issues", function() {
         message = 'Line Blocked';
+        SWT.updates.station = false;
         SWT.service.notification = false;
         SWT.service.delays = false;
         SWT.service.cancellations = false;
         SWT.updates.general = false;
         SWT.updates.line = true;
-        SWT.Status.setTitle();
+        SWT.setIcon();
         expect(SWT.title).toEqual(message);
     });
 
     it("should show Line blocked if updates.line and any combination of service.notification/service.cancellations/service.delays and no other issues", function() {
         message = 'Line Blocked';
+        SWT.updates.station = false;
         SWT.service.notification = true;
         SWT.service.delays = false;
         SWT.service.cancellations = false;
         SWT.updates.general = false;
         SWT.updates.line = true;
-        SWT.Status.setTitle();
+        SWT.setIcon();
         expect(SWT.title).toEqual(message);
 
         SWT.service.notification = false;
         SWT.service.delays = true;
         SWT.service.cancellations = false;
-        SWT.Status.setTitle();
+        SWT.setIcon();
         expect(SWT.title).toEqual(message);
 
         SWT.service.delays = false;
         SWT.service.cancellations = true;
-        SWT.Status.setTitle();
+        SWT.setIcon();
         expect(SWT.title).toEqual(message);
     });
 
@@ -230,7 +238,7 @@ describe("Status icon", function() {
         SWT.service.cancellations = false;
         SWT.updates.general = false;
         SWT.updates.line = false;
-        SWT.Status.setIcon();
+        SWT.setIcon();
         expect(SWT.icon).toEqual('service-good');
     });
     it("should show yellow if short formation/notification", function () {
@@ -239,7 +247,7 @@ describe("Status icon", function() {
         SWT.service.cancellations = false;
         SWT.updates.general = false;
         SWT.updates.line = false;
-        SWT.Status.setIcon();
+        SWT.setIcon();
         expect(SWT.icon).toEqual('service-notification');
 
     });
@@ -249,7 +257,7 @@ describe("Status icon", function() {
         SWT.service.cancellations = false;
         SWT.updates.general = false;
         SWT.updates.line = false;
-        SWT.Status.setIcon();
+        SWT.setIcon();
         expect(SWT.icon).toEqual('service-delays');
 
     });
@@ -259,7 +267,7 @@ describe("Status icon", function() {
         SWT.service.cancellations = true;
         SWT.updates.general = false;
         SWT.updates.line = false;
-        SWT.Status.setIcon();
+        SWT.setIcon();
         expect(SWT.icon).toEqual('service-cancellations');
 
     });

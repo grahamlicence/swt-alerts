@@ -249,6 +249,7 @@ var SWT = {
             // Sometimes data comes back with no category, so we have to second guess what the issue is
             manualCheck();
         }
+
     },
 
     // set status flags from data
@@ -256,6 +257,33 @@ var SWT = {
         var items = SWT.data.items;
         items.forEach(SWT.categoriseItem);
         console.log(SWT)
+        SWT.global.pub('datacat')
+    },
+
+    setIcon: function () {
+        SWT.title = 'Good Service';
+        SWT.icon = 'service-good';
+
+        // Start by raising the worst issue
+        if (SWT.service.line) {
+            SWT.title = 'Line Blocked';
+            SWT.icon = 'service-cancellations';
+        } else if (SWT.service.cancellations) {
+            SWT.title = 'Trains Cancelled';
+            SWT.icon = 'service-cancellations';
+        } else if (SWT.service.delays) {
+            SWT.title = 'Trains Delayed';
+            SWT.icon = 'service-delays';
+        } else if (SWT.service.notification) {
+            SWT.title = 'Service Change';
+            SWT.icon = 'service-notification';
+        } else if (SWT.updates.general) {
+            SWT.title = 'Service Announcement';
+            SWT.icon = 'service-message';
+        } else if (SWT.updates.station) {
+            SWT.title = 'Station Update';
+            SWT.icon = 'service-message';
+        }
     },
     
     init: function () {
@@ -281,6 +309,7 @@ var SWT = {
         this.updateData();
 
         SWT.global.sub('dataupdate', SWT.checkStatus);
+        SWT.global.sub('datacat', SWT.setIcon);
     }
 
 };
