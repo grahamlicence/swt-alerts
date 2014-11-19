@@ -35,6 +35,12 @@ describe("Status type", function() {
         category: ''
     };
 
+    it("should have no updates if category 'No Updates'", function () {
+        item.category = 'No Updates';
+        SWT.categoriseItem(item);
+        expect(SWT.updates.none).toBe(true);
+    });
+
     it("should have station update if category 'Station Updates'", function () {
         item.category = 'Station Updates';
         SWT.categoriseItem(item);
@@ -116,7 +122,7 @@ describe("Status title", function() {
         expect(SWT.title).toEqual(message);
     });
 
-    it("should show Service Announcement if updates.general or service.notification and no other issues", function() {
+    it("should show Service Change if service.notification and no other issues", function() {
         message = 'Service Change';
         SWT.updates.station = false;
         SWT.service.notification = true;
@@ -126,6 +132,10 @@ describe("Status title", function() {
         SWT.updates.line = false;
         SWT.setIcon();
         expect(SWT.title).toEqual(message);
+    });
+
+    it("should show Service Announcement if updates.general and no other issues", function() {
+        message = 'Service Announcement';
 
         SWT.service.notification = false;
         SWT.service.delays = false;

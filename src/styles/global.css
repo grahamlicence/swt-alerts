@@ -1,4 +1,4 @@
-
+*{box-sizing:border-box;}
 body {
     font-family: 'Segoe UI', Tahoma, sans-serif;
     font-size: 75%;
@@ -28,6 +28,7 @@ strong {
 .preferences {
     background: rgba(231, 231, 231, 0.81);
     display: none;
+    padding: 3px 0;
 }
 .preferences.open {
     display: block;
@@ -80,7 +81,8 @@ strong {
     float: left;
 }
 #to, #from {
-    width: 235px;
+    width: 246px;
+    padding: 4px;
 }
 .btn-close,
 .btn-clear,

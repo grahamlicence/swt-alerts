@@ -18,10 +18,12 @@ var SWT = {
                 var itemObj = {
                     title: item.getElementsByTagName('title')[0].innerHTML,
                     description: item.getElementsByTagName('description')[0].innerHTML,
-                    link: item.getElementsByTagName('link')[0].innerHTML,
                     pubDate: item.getElementsByTagName('pubDate')[0].innerHTML,
                     category: item.getElementsByTagName('category')[0].innerHTML
                 };
+                if (item.getElementsByTagName('link').length) {
+                    itemObj.link = item.getElementsByTagName('link')[0].innerHTML;
+                }
                 obj.items.push(itemObj);
             }
 
@@ -97,6 +99,7 @@ var SWT = {
         cancellationsItems: []
     },
     updates: {
+        none: true,
         general: false,
         generalItems: [],
         line: false,
@@ -255,6 +258,7 @@ var SWT = {
     // set status flags from data
     checkStatus: function () {
         var items = SWT.data.items;
+        console.log(items)
         items.forEach(SWT.categoriseItem);
         console.log(SWT)
         SWT.global.pub('datacat')
@@ -265,7 +269,7 @@ var SWT = {
         SWT.icon = 'service-good';
 
         // Start by raising the worst issue
-        if (SWT.service.line) {
+        if (SWT.updates.line) {
             SWT.title = 'Line Blocked';
             SWT.icon = 'service-cancellations';
         } else if (SWT.service.cancellations) {
@@ -279,10 +283,16 @@ var SWT = {
             SWT.icon = 'service-notification';
         } else if (SWT.updates.general) {
             SWT.title = 'Service Announcement';
-            SWT.icon = 'service-message';
+            SWT.icon = 'service-notification-message';
         } else if (SWT.updates.station) {
             SWT.title = 'Station Update';
-            SWT.icon = 'service-message';
+            SWT.icon = 'service-good-message';
+        }
+
+        // Set icon
+        if (chrome.browserAction) {
+            chrome.browserAction.setIcon({path: 'images/' + SWT.icon + '.png'});
+            chrome.browserAction.setTitle({title: SWT.title});
         }
     },
     
@@ -298,9 +308,13 @@ var SWT = {
         // this.url = 'http://rss.journeycheck.com/southwesttrains/southwesttrains/route?action=search&from=' + SWT.settings.fromSt + '&to=' + SWT.settings.toSt + '&period=today&formTubeUpdateLocation=' + SWT.settings.tubeStation + '&formTubeUpdatePeriod=&savedRoute=';
         
         // local testing
+        this.url = '../tests/data/noupdates.rss';
         // this.url = '../tests/data/notification.rss';
         // this.url = '../tests/data/general.rss';
-        this.url = '../tests/data/delays.rss';
+        // this.url = '../tests/data/delays.rss';
+        // this.url = '../tests/data/line.rss';
+        // this.url = '../tests/data/cancellations.rss';
+        // this.url = '../tests/data/station.rss';
 
         // setInterval(function() {
         //     requestFeed();
