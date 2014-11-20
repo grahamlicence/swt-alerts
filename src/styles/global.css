@@ -120,7 +120,7 @@ strong {
     width: 100%;
 }
 .content {
-    /*background: rgba(88, 170, 190, 0.26);*/
+    background: rgba(88, 170, 190, 0.26);
     margin: -3px 0 0;
     padding: 0;
 }
@@ -153,6 +153,7 @@ strong {
 }
 .stationauto {
     cursor: pointer;
+    display: block;
 }
 /* scrollbar */
 ::-webkit-scrollbar {

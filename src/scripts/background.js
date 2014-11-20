@@ -191,6 +191,7 @@ var SWT = {
                 case desc.contains('all lines have now reopened'):
                 case desc.contains('First class not available'):
                 case desc.contains('Toilets are not available'):
+                case desc.contains('Catering is not available'):
                 case desc.contains('will call additionally'):
                 case desc.contains('coaches instead of'):
                 case desc.contains('will be started from'):
@@ -321,6 +322,7 @@ var SWT = {
         // }, 300000); //check every 5 minutes
 
         this.updateData();
+        SWT.global.sub('stationupdate', SWT.updateData);
 
         SWT.global.sub('dataupdate', SWT.checkStatus);
         SWT.global.sub('datacat', SWT.setIcon);

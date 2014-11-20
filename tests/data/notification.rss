@@ -8,7 +8,7 @@
     <ttl>10</ttl>
 
 
-    <item>
+    <!-- <item>
       <title>South West Trains - Adverse Weather Timetable</title>
       <description>On Friday 18th January 2013 South West Trains will be operating an Adverse Weather Timetable. This will allow us to run as many trains as possible during the current bad weather. Most lines will be open with revised timetables however some stations will not be served. Unfortunately it will not be possible to run replacement bus services to the stations with no service.</description>
       <link>http://www.journeycheck.com/southwesttrains/route?id=3006_1296886278&amp;action=search&amp;from=&amp;to=&amp;savedRoute=&amp;formTubeUpdateType=&amp;formTubeUpdateLocation=&amp;formTubeUpdatePeriod=#3006_1296886278</link>
@@ -57,6 +57,20 @@
       <description>This train will be started from Basingstoke.</description>
       <link>http://www.journeycheck.com/southwesttrains/route?id=12969291031L55W10972070814&amp;action=search&amp;from=&amp;to=&amp;savedRoute=&amp;formTubeUpdateType=&amp;formTubeUpdateLocation=Service Updates&amp;formTubeUpdatePeriod=#12969291031L55W10972070814</link>
       <pubDate>12:47:38 07/08/2014</pubDate>
+      <category/>
+    </item> -->
+    <item>
+      <title>08:00 London Waterloo to Portsmouth Harbour due 09:37</title>
+      <description>Catering is not available.</description>
+      <link>http://www.journeycheck.com/southwesttrains/route?id=12969377521P17W11059201114&amp;action=search&amp;from=&amp;to=&amp;savedRoute=&amp;formTubeUpdateType=&amp;formTubeUpdateLocation=Service Updates&amp;formTubeUpdatePeriod=#12969377521P17W11059201114</link>
+      <pubDate>08:01:05 20/11/2014</pubDate>
+      <category/>
+    </item>
+    <item>
+      <title>Alterations to services at Ash Vale</title>
+      <description>Following a passenger having been taken ill earlier at Ash Vale all lines are now open.</description>
+      <link>http://www.journeycheck.com/southwesttrains/route?id=1296937769&amp;action=search&amp;from=&amp;to=&amp;savedRoute=&amp;formTubeUpdateType=&amp;formTubeUpdateLocation=Line Updates&amp;formTubeUpdatePeriod=#1296937769</link>
+      <pubDate>16:47:46 20/11/2014</pubDate>
       <category/>
     </item>
     
