@@ -205,7 +205,9 @@ SWT.preferences = {
                 fromShort = document.getElementById('fromshort'),
                 toShort = document.getElementById('toshort'),
                 from = localStorage.from || '',
-                to = localStorage.to || '';
+                to = localStorage.to || '',
+                fromText = document.querySelector('.from-set'),
+                toText = document.querySelector('.to-set');
 
             // attach events
             function attachEvents (ind) {
@@ -236,24 +238,22 @@ SWT.preferences = {
             fromShort.value = from;
             toShort.value = to;
 
-            function popName (station, ind) {
+            function popName (station, ind, text) {
                 if (station === 'WAT') {
                     inputFields[ind].value = 'LONDON WATERLOO';
                     name = 'LONDON WATERLOO';
                 } else {
-                    console.log(station)
                     point = SWT.stations.has(station);
-                    console.log(point)
                     name = SWT.stations[point].name;
-                    console.log(name)
                     inputFields[ind].value = name;
                 }
+                text.innerHTML = name;
             }
             if (from) {
-                popName(fromShort.value, 0);
+                popName(fromShort.value, 0, fromText);
             }
             if (to) {
-                popName(toShort.value, 1);
+                popName(toShort.value, 1, toText);
             }
 
             // add button click events

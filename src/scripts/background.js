@@ -313,8 +313,8 @@ var SWT = {
         // this.url = 'http://rss.journeycheck.com/southwesttrains/southwesttrains/route?action=search&from=' + SWT.settings.fromSt + '&to=' + SWT.settings.toSt + '&period=today&formTubeUpdateLocation=' + SWT.settings.tubeStation + '&formTubeUpdatePeriod=&savedRoute=';
         
         // local testing
-        this.url = '../tests/data/noupdates.rss?from=' + SWT.settings.fromSt + '&to=' + SWT.settings.toSt;
-        // this.url = '../tests/data/notification.rss?from=' + SWT.settings.fromSt + '&to=' + SWT.settings.toSt;
+        // this.url = '../tests/data/noupdates.rss?from=' + SWT.settings.fromSt + '&to=' + SWT.settings.toSt;
+        this.url = '../tests/data/notification.rss?from=' + SWT.settings.fromSt + '&to=' + SWT.settings.toSt;
         // this.url = '../tests/data/general.rss?from=' + SWT.settings.fromSt + '&to=' + SWT.settings.toSt;
         // this.url = '../tests/data/delays.rss?from=' + SWT.settings.fromSt + '&to=' + SWT.settings.toSt;
         // this.url = '../tests/data/line.rss?from=' + SWT.settings.fromSt + '&to=' + SWT.settings.toSt;
