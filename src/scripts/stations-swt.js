@@ -1,4 +1,6 @@
-SWT.stations =
+var Base = Base || {};
+
+Base.stations =
 [
 	{
 		"name":"ADDLESTONE",

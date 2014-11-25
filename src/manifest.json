@@ -1,6 +1,6 @@
 {
   "name": "South West Trains journey alerts",
-  "version": "0.7.4",
+  "version": "0.8",
   "manifest_version": 2,
   "description": "Service updates for travel on South West Trains",
   "icons": {
@@ -9,9 +9,9 @@
     "128": "images/default_128.png" 
   },
   "browser_action": {
-    "default_icon": "images/default.png",
+    "default_icon": "images/default_128.png",
     "default_popup": "index.html",    
-    "default_title": "Unable to connect to data feed or internet"
+    "default_title": "SWT alerts"
   },
   "background": {
     "scripts": ["scripts/background.js"]

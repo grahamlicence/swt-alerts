@@ -1,4 +1,10 @@
-var SWT = SWT || {};
+
+chrome.runtime.getBackgroundPage(function (background) {
+    console.log(background.SWT)
+    var SWT = background.SWT || {};
+
+
+console.log(SWT)
 
 // change preferences
 SWT.preferences = {
@@ -279,13 +285,15 @@ SWT.preferences = {
 
         toggleBtn.addEventListener('click', this.toggle);
         closeBtn.addEventListener('click', this.toggle);
-        closePopupBtn.addEventListener('click', window.close);
+        closePopupBtn.addEventListener('click', function () {
+            window.close();
+        });
 
         toggleBtn.click();
         
         // listen for data updates
-        SWT.global.sub('dataupdate', SWT.preferences.setDate);
-        SWT.global.sub('datacat', SWT.preferences.displayIssues);
+        // SWT.global.sub('dataupdate', SWT.preferences.setDate);
+        // SWT.global.sub('datacat', SWT.preferences.displayIssues);
 
         SWT.preferences.setStations.init();
     }
@@ -299,3 +307,6 @@ SWT.hideNotification = {
 
 // Initialise popup
 SWT.preferences.init();
+
+
+});
