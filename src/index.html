@@ -47,13 +47,13 @@
                     <a title="close preferences" class="btn btn-close js-close-preferences">close</a>
                     <div class="row">
                         <label for="from">From</label>
-                        <input id="from" class="js-input" /><a class="btn btn-clear js-clear-from" title="clear"></a>
+                        <input id="from" class="js-input" data-short-input="fromshort" /><a class="btn btn-clear js-clear-from" title="clear"></a>
                         <div id="fromstations" class="fromauto autocomplete js-autocomplete"></div>
                         <input id="fromshort" />
                     </div>
                     <div class="row">
                         <label for="to">To</label>
-                        <input id="to" class="js-input" /><a class="btn btn-clear js-clear-to" title="clear"></a>
+                        <input id="to" class="js-input" data-short-input="toshort" /><a class="btn btn-clear js-clear-to" title="clear"></a>
                         <div id="tostations" class="toauto autocomplete js-autocomplete"></div>
                         <input id="toshort" />
                     </div>
@@ -61,7 +61,7 @@
                         <input type="checkbox" id="tube" />
                         <label for="tube">Get tube updates</label>
                     </div> -->
-                    <button class="save">save</button>
+                    <button class="save js-save">save</button>
                 </div>
             </section>
 

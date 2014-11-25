@@ -160,9 +160,10 @@ var SWT = {
     },
 
     updateData: function () {
-        this
-            .get(this.url)
-            .then(this.dataSort, this.dataError);
+        SWT.updateSettings();
+        SWT
+            .get(SWT.url)
+            .then(SWT.dataSort, SWT.dataError);
     },
 
     categoriseItem: function (item) {
@@ -296,26 +297,35 @@ var SWT = {
             chrome.browserAction.setTitle({title: SWT.title});
         }
     },
-    
-    init: function () {
 
-        // update settings from localStorage
+    updateSettings: function () {
         this.settings.fromSt = localStorage.from || '';
         this.settings.toSt = localStorage.to || '';
         this.settings.useTube = localStorage.useTube === 'true' ? true : false;
         this.settings.tubeStation = this.settings.fromSt === '' ? '' : 'THIS_STATION';
 
+        SWT.setUrl();
+    },
+
+    setUrl: function () {
+
         // set url for the feed
         // this.url = 'http://rss.journeycheck.com/southwesttrains/southwesttrains/route?action=search&from=' + SWT.settings.fromSt + '&to=' + SWT.settings.toSt + '&period=today&formTubeUpdateLocation=' + SWT.settings.tubeStation + '&formTubeUpdatePeriod=&savedRoute=';
         
         // local testing
-        this.url = '../tests/data/noupdates.rss';
-        // this.url = '../tests/data/notification.rss';
-        // this.url = '../tests/data/general.rss';
-        // this.url = '../tests/data/delays.rss';
-        // this.url = '../tests/data/line.rss';
-        // this.url = '../tests/data/cancellations.rss';
-        // this.url = '../tests/data/station.rss';
+        this.url = '../tests/data/noupdates.rss?from=' + SWT.settings.fromSt + '&to=' + SWT.settings.toSt;
+        // this.url = '../tests/data/notification.rss?from=' + SWT.settings.fromSt + '&to=' + SWT.settings.toSt;
+        // this.url = '../tests/data/general.rss?from=' + SWT.settings.fromSt + '&to=' + SWT.settings.toSt;
+        // this.url = '../tests/data/delays.rss?from=' + SWT.settings.fromSt + '&to=' + SWT.settings.toSt;
+        // this.url = '../tests/data/line.rss?from=' + SWT.settings.fromSt + '&to=' + SWT.settings.toSt;
+        // this.url = '../tests/data/cancellations.rss?from=' + SWT.settings.fromSt + '&to=' + SWT.settings.toSt;
+        // this.url = '../tests/data/station.rss?from=' + SWT.settings.fromSt + '&to=' + SWT.settings.toSt;
+    },
+    
+    init: function () {
+
+        // update settings from localStorage
+        this.updateSettings();
 
         // setInterval(function() {
         //     requestFeed();
@@ -332,6 +342,16 @@ var SWT = {
 
 // add in a simple contains object
 String.prototype.contains = function(it) { return this.indexOf(it) != -1; };
+
+// simple array search for station name using shortname
+Array.prototype.has = function (v) {
+    for (i = 0, l = this.length; i < l; i += 1){
+        if (this[i].shortname === v) {
+            return i;
+        }
+    }
+    return false;
+};
 
 // Initialise background
 SWT.init();

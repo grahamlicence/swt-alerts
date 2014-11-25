@@ -5,6 +5,10 @@ body {
     min-width:357px;
 }
 
+main {
+    width: 360px;
+}
+
 h3 {
     font-size: 15px;
     margin: 0 0 3px;

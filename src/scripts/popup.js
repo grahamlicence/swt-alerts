@@ -87,9 +87,16 @@ SWT.preferences = {
     // change the to and from stations
     setStations: {
 
-        popuplate: function (e) {
-            e.preventDefault();
-            console.log(this)
+        populate: function (stationName, input, list) {
+            var shortInput = document.getElementById(input.getAttribute('data-short-input'));
+
+            input.value = stationName.innerHTML;
+            shortInput.value = stationName.getAttribute('data-short');
+            console.log(stationName)
+            console.log(shortInput.value)
+
+            // clear auto fill list
+            list.innerHTML = '';
         },
 
         autoFill: function (input, autocompleteDiv) {
@@ -125,19 +132,66 @@ SWT.preferences = {
             // add click events
             autocomplete = autocompleteDiv.querySelectorAll('.stationauto');
             for (var i = 0, l = autocomplete.length; i < l; i += 1) {
-                autocomplete[i].addEventListener('click', SWT.preferences.setStations.popuplate);
+                autocomplete[i].addEventListener('click', function (e) {
+                    e.preventDefault();
+                    var name = this.innerHTML;
+                    console.log(name)
+                    SWT.preferences.setStations.populate(this, input, autocompleteDiv);
+                });
             }
         },
 
         chooseFirst: function (e, input, autocompleteDiv) {
-            console.log('e')
-            var id = '#' + this.id + 'stations .stationauto',
-                stationList;
-            if (e.keyCode === 13) {
-                stationList = d.querySelectorAll(id);
-                if (stationList.length) {
-                    App.preferences.set(stationList[0]);
-                }
+            var stationList;
+                stationList = autocompleteDiv.querySelectorAll('a');
+
+            console.log(stationList)
+            if (stationList.length) {
+                SWT.preferences.setStations.populate(stationList[0], input, autocompleteDiv);
+            }
+        },
+
+        save: function (e) {
+            if (e) {
+                e.preventDefault();
+            }
+            var fromShort = document.getElementById('fromshort'),
+                toShort = document.getElementById('toshort'),
+                fromText = document.querySelector('.from-set'),
+                toText = document.querySelector('.to-set');
+
+            localStorage.from = fromShort.value;
+            localStorage.to = toShort.value;
+            // localStorage.useTube = el.tubeInput.checked;
+
+            fromText.innerHTML = document.getElementById('from').value;
+            toText.innerHTML = document.getElementById('to').value;
+
+            SWT.global.pub('stationupdate');
+        },
+
+        // TODO: refactor using html templates
+        switchDirection: function (e) {
+            e.preventDefault();
+            var fromShort = document.getElementById('fromshort'),
+                from = document.getElementById('from'),
+                fromShortValue = fromShort.value,
+                fromValue = from.value,
+
+                toShort = document.getElementById('toshort'),
+                to = document.getElementById('to'),
+                toShortValue = toShort.value,
+                toValue = to.value;
+
+            // swap values
+            fromShort.value = toShortValue;
+            from.value = toValue;
+            toShort.value = fromShortValue;
+            to.value = fromValue;
+
+            // save and update journey if form closes
+            if (!SWT.preferences.open) {
+                SWT.preferences.setStations.save();
             }
         },
 
@@ -146,7 +200,12 @@ SWT.preferences = {
                 clearFrom = document.querySelector('.js-clear-from'),
                 clearTo = document.querySelector('.js-clear-to'),
                 inputFields = document.querySelectorAll('.js-input'),
-                autocomplete = document.querySelectorAll('.js-autocomplete');
+                autocomplete = document.querySelectorAll('.js-autocomplete'),
+                saveBtn = document.querySelectorAll('.js-save')[0],
+                fromShort = document.getElementById('fromshort'),
+                toShort = document.getElementById('toshort'),
+                from = localStorage.from || '',
+                to = localStorage.to || '';
 
             // attach events
             function attachEvents (ind) {
@@ -154,7 +213,17 @@ SWT.preferences = {
                     SWT.preferences.setStations.autocomplete(e, inputFields[ind], autocomplete[ind]);
                 });
                 inputFields[ind].addEventListener('keydown', function (e) {
-                    SWT.preferences.setStations.chooseFirst(e, inputFields[ind], autocomplete[ind]);
+                    console.log(e.keyCode)
+                    
+                    // pressed enter
+                    if (e.keyCode === 13) {
+                        SWT.preferences.setStations.chooseFirst(e, inputFields[ind], autocomplete[ind]);
+                    
+                    // pressed esc
+                    } else if (e.keyCode === 27) {
+                        inputFields[ind].value = '';
+                        SWT.preferences.setStations.autoFill(inputFields[ind], autocomplete[ind]);
+                    }
                 });
             }
 
@@ -163,7 +232,43 @@ SWT.preferences = {
                 attachEvents(i);
             }
 
-            //SWT.global.pub('stationupdate');
+            // populate stations
+            fromShort.value = from;
+            toShort.value = to;
+
+            function popName (station, ind) {
+                if (station === 'WAT') {
+                    inputFields[ind].value = 'LONDON WATERLOO';
+                    name = 'LONDON WATERLOO';
+                } else {
+                    console.log(station)
+                    point = SWT.stations.has(station);
+                    console.log(point)
+                    name = SWT.stations[point].name;
+                    console.log(name)
+                    inputFields[ind].value = name;
+                }
+            }
+            if (from) {
+                popName(fromShort.value, 0);
+            }
+            if (to) {
+                popName(toShort.value, 1);
+            }
+
+            // add button click events
+            clearFrom.addEventListener('click', function (e) {
+                e.preventDefault();
+                inputFields[0].value = '';
+                SWT.preferences.setStations.autoFill(inputFields[0], autocomplete[0]);
+            });
+            clearTo.addEventListener('click', function (e) {
+                e.preventDefault();
+                inputFields[1].value = '';
+                SWT.preferences.setStations.autoFill(inputFields[1], autocomplete[1]);
+            });
+            saveBtn.addEventListener('click', SWT.preferences.setStations.save);
+            switchBtn.addEventListener('click', SWT.preferences.setStations.switchDirection);
         }
     },
 
