@@ -1,11 +1,21 @@
 
+// simple array search for station name using shortname
+Array.prototype.has = function (v) {
+    for (i = 0, l = this.length; i < l; i += 1){
+        if (this[i].shortname === v) {
+            return i;
+        }
+    }
+    return false;
+};
+
 chrome.runtime.getBackgroundPage(function (background) {
+
     console.log(background.SWT)
-    var SWT = background.SWT || {};
 
+var SWT = background.SWT || {};
 
-console.log(SWT)
-
+    console.log(SWT)
 // change preferences
 SWT.preferences = {
     open: false,
@@ -119,9 +129,9 @@ SWT.preferences = {
             if (val.indexOf('W') === 0 || val.indexOf('WA') === 0 || val.indexOf('WAT') === 0 || val.indexOf('WATE') === 0 || val.indexOf('WATER') === 0 || val.indexOf('WATERL') === 0 || val.indexOf('WATERLO') === 0 || val.indexOf('WATERLOO') === 0) {
                 html += '<a href="" class="stationauto" data-short="WAT">LONDON WATERLOO</a>';
             }
-            for (i = 0, l = SWT.stations.length; i < l; i += 1) {
-                if (SWT.stations[i].name.indexOf(val) === 0) {
-                    html += '<a href="" class="stationauto" data-short="' + SWT.stations[i].shortname + '">' + SWT.stations[i].name + '</a>';
+            for (i = 0, l = Base.stations.length; i < l; i += 1) {
+                if (Base.stations[i].name.indexOf(val) === 0) {
+                    html += '<a href="" class="stationauto" data-short="' + Base.stations[i].shortname + '">' + Base.stations[i].name + '</a>';
                 }
             }
             autocompleteDiv.innerHTML = html;
@@ -206,6 +216,7 @@ SWT.preferences = {
                 clearFrom = document.querySelector('.js-clear-from'),
                 clearTo = document.querySelector('.js-clear-to'),
                 inputFields = document.querySelectorAll('.js-input'),
+                shortInputFields = document.querySelectorAll('.js-short-input'),
                 autocomplete = document.querySelectorAll('.js-autocomplete'),
                 saveBtn = document.querySelectorAll('.js-save')[0],
                 fromShort = document.getElementById('fromshort'),
@@ -230,6 +241,7 @@ SWT.preferences = {
                     // pressed esc
                     } else if (e.keyCode === 27) {
                         inputFields[ind].value = '';
+                        shortInputFields[ind].value - '';
                         SWT.preferences.setStations.autoFill(inputFields[ind], autocomplete[ind]);
                     }
                 });
@@ -249,8 +261,8 @@ SWT.preferences = {
                     inputFields[ind].value = 'LONDON WATERLOO';
                     name = 'LONDON WATERLOO';
                 } else {
-                    point = SWT.stations.has(station);
-                    name = SWT.stations[point].name;
+                    point = Base.stations.has(station);
+                    name = Base.stations[point].name;
                     inputFields[ind].value = name;
                 }
                 text.innerHTML = name;
@@ -289,9 +301,10 @@ SWT.preferences = {
             window.close();
         });
 
-        toggleBtn.click();
+        // toggleBtn.click();
         
         // listen for data updates
+        // TODO convert to chrome extension messaging
         // SWT.global.sub('dataupdate', SWT.preferences.setDate);
         // SWT.global.sub('datacat', SWT.preferences.displayIssues);
 
@@ -307,6 +320,5 @@ SWT.hideNotification = {
 
 // Initialise popup
 SWT.preferences.init();
-
 
 });

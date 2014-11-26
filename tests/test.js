@@ -1,3 +1,10 @@
+
+// change path to local url
+SWT.settings.path = '../tests/data/notification.rss?from=';
+// SWT.init();
+
+console.log(SWT.preferences)
+
 // What are the messages?
 // SWT.service.notification     different coaches or started from different station
 // SWT.service.delays           any train delay

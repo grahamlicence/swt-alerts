@@ -76,6 +76,22 @@
         </main>
   <!-- include source files here... -->
   <script type="text/javascript" src="../src/scripts/background.js"></script>
+
+  <script>
+
+    // mock chrome extension events
+    var background = {
+        SWT: SWT
+    };
+    chrome = {
+        runtime: {
+            getBackgroundPage: function (callback) {
+                return callback(background);
+            }
+        }
+    }
+  </script>
+
   <script type="text/javascript" src="../src/scripts/popup.js"></script>
 
   <!-- include spec files here... -->

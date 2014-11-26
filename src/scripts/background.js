@@ -83,10 +83,22 @@ var SWT = {
     },
 
     settings: {
+        
+        // feed location
+        path: 'http://rss.journeycheck.com/southwesttrains/southwesttrains/route?action=search&from=',
+        // path: '../tests/data/noupdates.rss?from=',
+        // path: '../tests/data/notification.rss?from=',
+        // path: '../tests/data/general.rss?from=',
+        // path: '../tests/data/delays.rss?from=',
+        // path: '../tests/data/line.rss?from=',
+        // path: '../tests/data/cancellations.rss?from=',
+        // path: '../tests/data/station.rss?from=',
+        
+        // station settings
         fromSt: '',
         toSt: '',
         useTube: false,
-        tubeStation: ''
+        tubeStation: '',
     },
 
     // Service status
@@ -310,16 +322,7 @@ var SWT = {
     setUrl: function () {
 
         // set url for the feed
-        this.url = 'http://rss.journeycheck.com/southwesttrains/southwesttrains/route?action=search&from=' + SWT.settings.fromSt + '&to=' + SWT.settings.toSt + '&period=today&formTubeUpdateLocation=' + SWT.settings.tubeStation + '&formTubeUpdatePeriod=&savedRoute=';
-        
-        // local testing
-        // this.url = '../tests/data/noupdates.rss?from=' + SWT.settings.fromSt + '&to=' + SWT.settings.toSt;
-        // this.url = '../tests/data/notification.rss?from=' + SWT.settings.fromSt + '&to=' + SWT.settings.toSt;
-        // this.url = '../tests/data/general.rss?from=' + SWT.settings.fromSt + '&to=' + SWT.settings.toSt;
-        // this.url = '../tests/data/delays.rss?from=' + SWT.settings.fromSt + '&to=' + SWT.settings.toSt;
-        // this.url = '../tests/data/line.rss?from=' + SWT.settings.fromSt + '&to=' + SWT.settings.toSt;
-        // this.url = '../tests/data/cancellations.rss?from=' + SWT.settings.fromSt + '&to=' + SWT.settings.toSt;
-        // this.url = '../tests/data/station.rss?from=' + SWT.settings.fromSt + '&to=' + SWT.settings.toSt;
+        this.url = SWT.settings.path + SWT.settings.fromSt + '&to=' + SWT.settings.toSt + '&period=today&formTubeUpdateLocation=' + SWT.settings.tubeStation + '&formTubeUpdatePeriod=&savedRoute=';
     },
     
     init: function () {
@@ -342,16 +345,6 @@ var SWT = {
 
 // add in a simple contains object
 String.prototype.contains = function(it) { return this.indexOf(it) != -1; };
-
-// simple array search for station name using shortname
-Array.prototype.has = function (v) {
-    for (i = 0, l = this.length; i < l; i += 1){
-        if (this[i].shortname === v) {
-            return i;
-        }
-    }
-    return false;
-};
 
 // Initialise background
 SWT.init();
