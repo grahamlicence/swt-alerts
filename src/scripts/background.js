@@ -163,7 +163,8 @@ var SWT = {
 
     dataSort: function (response) {
         SWT.data = SWT.global.xmlToJson(response.responseXML);
-        SWT.global.pub('dataupdate');
+        // SWT.global.pub('dataupdate');
+        chrome.runtime.sendMessage({msg: 'dataupdate'});
     },
 
     // error getting feed
@@ -272,10 +273,33 @@ var SWT = {
     // set status flags from data
     checkStatus: function () {
         var items = SWT.data.items;
+
+        //reset status        
+        SWT.service = {
+            notification: false,
+            notificationItems: [],
+            delays: false,
+            delaysItems: [],
+            cancellations: false,
+            cancellationsItems: []
+        };
+        SWT.updates = {
+            none: true,
+            general: false,
+            generalItems: [],
+            line: false,
+            lineItems: [],
+            station: false,
+            stationItems: []
+        };
+        
         console.log(items)
+
+        // categorise each update item
         items.forEach(SWT.categoriseItem);
         console.log(SWT)
-        SWT.global.pub('datacat')
+        // SWT.global.pub('datacat');
+        chrome.runtime.sendMessage({msg: 'datacat'});
     },
 
     setIcon: function () {
@@ -330,15 +354,27 @@ var SWT = {
         // update settings from localStorage
         this.updateSettings();
 
-        // setInterval(function() {
-        //     requestFeed();
-        // }, 300000); //check every 5 minutes
+        setInterval(function() {
+            SWT.updateData();
+        }, 300000); //check every 5 minutes
 
         this.updateData();
-        SWT.global.sub('stationupdate', SWT.updateData);
+        // SWT.global.sub('stationupdate', SWT.updateData);
 
-        SWT.global.sub('dataupdate', SWT.checkStatus);
-        SWT.global.sub('datacat', SWT.setIcon);
+        // SWT.global.sub('dataupdate', SWT.checkStatus);
+        // SWT.global.sub('datacat', SWT.setIcon);
+
+        // init
+        chrome.runtime.onMessage.addListener(
+            function(request) {
+            if (request.msg === 'stationupdate') {
+                SWT.updateData();
+            } else if (request.msg === 'dataupdate') {
+                SWT.checkStatus();
+            } else if (request.msg === 'datacat') {
+                SWT.setIcon();
+            }
+        });
     }
 
 };

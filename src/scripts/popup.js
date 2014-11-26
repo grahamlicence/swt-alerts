@@ -20,7 +20,9 @@ var SWT = background.SWT || {};
 SWT.preferences = {
     open: false,
     toggle: function (e) {
-        e.preventDefault();
+        if (e) {
+            e.preventDefault();
+        }
         var pref = document.querySelectorAll('.preferences')[0];
         if (SWT.preferences.open) {
             pref.className = pref.className.replace(' open', '');
@@ -173,17 +175,21 @@ SWT.preferences = {
             }
             var fromShort = document.getElementById('fromshort'),
                 toShort = document.getElementById('toshort'),
-                fromText = document.querySelector('.from-set'),
-                toText = document.querySelector('.to-set');
+                fromTextField = document.querySelector('.from-set'),
+                toTextField = document.querySelector('.to-set'),
+                fromText = document.getElementById('from').value,
+                toText = document.getElementById('to').value;
 
             localStorage.from = fromShort.value;
             localStorage.to = toShort.value;
+            console.log(toShort.value)
             // localStorage.useTube = el.tubeInput.checked;
 
-            fromText.innerHTML = document.getElementById('from').value;
-            toText.innerHTML = document.getElementById('to').value;
+            fromTextField.innerHTML = fromText.length ? 'from ' + fromText : '';
+            toTextField.innerHTML = toText.length ? 'to ' + toText : '';
 
-            SWT.global.pub('stationupdate');
+            // SWT.global.pub('stationupdate');
+            chrome.runtime.sendMessage({msg: 'stationupdate'});
         },
 
         // TODO: refactor using html templates
@@ -241,7 +247,7 @@ SWT.preferences = {
                     // pressed esc
                     } else if (e.keyCode === 27) {
                         inputFields[ind].value = '';
-                        shortInputFields[ind].value - '';
+                        shortInputFields[ind].value = '';
                         SWT.preferences.setStations.autoFill(inputFields[ind], autocomplete[ind]);
                     }
                 });
@@ -256,7 +262,7 @@ SWT.preferences = {
             fromShort.value = from;
             toShort.value = to;
 
-            function popName (station, ind, text) {
+            function popName (station, ind, text, dir) {
                 if (station === 'WAT') {
                     inputFields[ind].value = 'LONDON WATERLOO';
                     name = 'LONDON WATERLOO';
@@ -265,27 +271,38 @@ SWT.preferences = {
                     name = Base.stations[point].name;
                     inputFields[ind].value = name;
                 }
-                text.innerHTML = name;
+                console.log(name.lenth)
+                if (!name.length) {
+                    dir = '';
+                }
+                text.innerHTML = dir + name;
             }
             if (from) {
-                popName(fromShort.value, 0, fromText);
+                popName(fromShort.value, 0, fromText, 'from ');
             }
             if (to) {
-                popName(toShort.value, 1, toText);
+                popName(toShort.value, 1, toText, 'to ');
             }
 
             // add button click events
             clearFrom.addEventListener('click', function (e) {
                 e.preventDefault();
                 inputFields[0].value = '';
+                shortInputFields[0].value = '';
                 SWT.preferences.setStations.autoFill(inputFields[0], autocomplete[0]);
             });
             clearTo.addEventListener('click', function (e) {
                 e.preventDefault();
                 inputFields[1].value = '';
+                shortInputFields[1].value = '';
                 SWT.preferences.setStations.autoFill(inputFields[1], autocomplete[1]);
             });
-            saveBtn.addEventListener('click', SWT.preferences.setStations.save);
+            saveBtn.addEventListener('click', function () {
+                SWT.preferences.setStations.save();
+
+                // close panel
+                SWT.preferences.toggle();
+            });
             switchBtn.addEventListener('click', SWT.preferences.setStations.switchDirection);
         }
     },
@@ -307,8 +324,19 @@ SWT.preferences = {
         // TODO convert to chrome extension messaging
         // SWT.global.sub('dataupdate', SWT.preferences.setDate);
         // SWT.global.sub('datacat', SWT.preferences.displayIssues);
+        chrome.runtime.onMessage.addListener(
+            function(request) {
+            if (request.msg === 'dataupdate') {
+                SWT.preferences.setDate();
+            } else if (request.msg === 'datacat') {
+                SWT.preferences.displayIssues();
+            }
+        });
 
+        // set updates based on initial data
         SWT.preferences.setStations.init();
+        SWT.preferences.setDate();
+        SWT.preferences.displayIssues();
     }
 };
 
