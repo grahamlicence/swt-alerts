@@ -31,10 +31,10 @@ module.exports = function(grunt) {
                     },
                     // manifest
                     {
-                        expand: true, flatten: true, src: 'src/manifest.json', dest: 'build'
+                        src: 'src/manifest.json', dest: 'build/manifest.json'
                     },
                 ],
-                
+
                 // TODO: update version through here
                 options: {
                   process: function (content, srcpath) {
