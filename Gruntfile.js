@@ -26,11 +26,34 @@ module.exports = function(grunt) {
             main: {
                 files: [
                     // main files
-                    {expand: true, flatten: true, src: ['src/popup.html'], dest: 'build'},
+                    {
+                        src: 'src/index.html', dest: 'build/index.html', nonull: true
+                    },
                     // manifest
-                    {expand: true, flatten: true, src: 'src/manifest.json', dest: 'build'},
+                    {
+                        expand: true, flatten: true, src: 'src/manifest.json', dest: 'build'
+                    },
+                ],
+                
+                // TODO: update version through here
+                options: {
+                  process: function (content, srcpath) {
+                    return content
+                        .replace('stations-swt.js','stations-swt.min.js')
+                        .replace('popup.js','popup.min.js')
+                        .replace('background.js','background.min.js');
+                  },
+                },
+            },
+
+            // images need to be copied seperately as the options.process corrupts them
+            images: {
+                files: [
                     // all images
-                    {expand: true, flatten: true, src: ['src/images/**'], dest: 'build/images', filter: 'isFile'}
+                    {
+                        expand: true, flatten: true, src: ['src/images/**'], dest: 'build/images', filter: 'isFile'
+                    }
+
                 ]
             }
         },
@@ -43,9 +66,9 @@ module.exports = function(grunt) {
             },
             js: {
                 files: {
-                    'src/scripts/popup.min.js': 'build/scripts/popup.js',
-                    'src/scripts/stations-swt.min.js': 'build/scripts/stations-swt.js',
-                    'src/scripts/background.min.js': 'build/scripts/background.js'
+                    'build/scripts/popup.min.js': 'src/scripts/popup.js',
+                    'build/scripts/stations-swt.min.js': 'src/scripts/stations-swt.js',
+                    'build/scripts/background.min.js': 'src/scripts/background.js'
                 }
             }
         },
