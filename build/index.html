@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>SWT Alerts</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link rel="stylesheet" type="text/css" href="styles/global.css">
+    <body>
+
+        <main>
+
+            <span class="error-message"></span>
+            <p>Last updated <span class="pubdate"><img src="images/ajax-loader.gif" /></span> <a class="popupclosebtn js-close-popup" title="close popup"></a></p>
+
+            <section class="update-content">
+                <div class="content">
+                    <h3>Gerneral updates</h3>
+                    <div class="general"><p>No known issues.</p></div>
+                </div>
+                <div class="content">
+                    <h3>Line updates</h3>
+                    <div class="line"><p>No known issues.</p></div>
+                </div>
+                <div class="content">
+                    <h3>Service updates</h3>
+                    <div class="service"><p>No known issues.</p></div>
+                </div>
+                <!-- <div class="content">
+                    <h3>Tube updates</h3>
+                    <div class="tube"></div>
+                </div> -->
+                <div class="content">
+                    <h3>Station updates</h3>
+                    <div class="station"><p>No known issues.</p></div>
+                </div>
+            </section>
+
+            <section class="preferences-wrapper">
+                <h3>Settings</h3>
+
+                <p class="journey-set">
+                    Travel <span class="from-set"></span> <span class="to-set"></span> 
+                    <a class="btn btn-preferences js-preferences" title="edit">Change</a> 
+                    <a class="btn btn-switch js-switch" title="Switch direction">Switch</a>
+                </p>
+
+                <div class="preferences">
+                    <a title="close preferences" class="btn btn-close js-close-preferences">close</a>
+                    <div class="row">
+                        <label for="from">From</label>
+                        <input id="from" class="js-input" data-short-input="fromshort" /><a class="btn btn-clear js-clear-from" title="clear"></a>
+                        <div id="fromstations" class="fromauto autocomplete js-autocomplete"></div>
+                        <input id="fromshort" class="js-short-input" />
+                    </div>
+                    <div class="row">
+                        <label for="to">To</label>
+                        <input id="to" class="js-input" data-short-input="toshort" /><a class="btn btn-clear js-clear-to" title="clear"></a>
+                        <div id="tostations" class="toauto autocomplete js-autocomplete"></div>
+                        <input id="toshort" class="js-short-input" />
+                    </div>
+                    <!-- <div class="row checkbox">
+                        <input type="checkbox" id="tube" />
+                        <label for="tube">Get tube updates</label>
+                    </div> -->
+                    <button class="save js-save">save</button>
+                </div>
+            </section>
+
+        </main>
+      <!--<script src="scripts/background.min.js"></script>-->
+      <script src="scripts/stations-swt.min.js"></script>
+      <script src="scripts/popup.min.js"></script>
+    </body>
+</html>
