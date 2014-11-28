@@ -190,6 +190,8 @@ SWT.preferences = {
 
             // SWT.global.pub('stationupdate');
             chrome.runtime.sendMessage({msg: 'stationupdate'});
+
+            // TODO: add updating overlay message
         },
 
         // TODO: refactor using html templates
