@@ -1,6 +1,6 @@
 {
   "name": "South West Trains journey alerts",
-  "version": "0.8",
+  "version": "0.8.1",
   "manifest_version": 2,
   "description": "Service updates for travel on South West Trains",
   "icons": {

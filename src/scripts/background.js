@@ -31,55 +31,8 @@ var SWT = {
                 setItem(items[i]);
             }
             return obj;
-        },
-
-        // simple pub/sub
-        pubsub: {
-            topics: {},
-            subUid: -1
-        },
-
-        sub: function(topic, func) {
-            if (!SWT.global.pubsub.topics[topic]) {
-                SWT.global.pubsub.topics[topic] = [];
-            }
-            var token = (++SWT.global.pubsub.subUid).toString();
-            SWT.global.pubsub.topics[topic].push({
-                token: token,
-                func: func
-            });
-            return token;
-        },
-        
-        pub: function(topic, args) {
-            if (!SWT.global.pubsub.topics[topic]) {
-                return false;
-            }
-            setTimeout(function() {
-                var subscribers = SWT.global.pubsub.topics[topic],
-                    len = subscribers ? subscribers.length : 0;
-     
-                while (len--) {
-                    subscribers[len].func(topic, args);
-                }
-            }, 0);
-            return true;
-     
-        },
-        
-        unsub: function(token) {
-            for (var m in SWT.global.pubsub.topics) {
-                if (SWT.global.pubsub.topics[m]) {
-                    for (var i = 0, j = SWT.global.pubsub.topics[m].length; i < j; i++) {
-                        if (SWT.global.pubsub.topics[m][i].token === token) {
-                            SWT.global.pubsub.topics[m].splice(i, 1);
-                            return token;
-                        }
-                    }
-                }
-            }
-            return false;
         }
+
     },
 
     settings: {
@@ -224,6 +177,7 @@ var SWT = {
                 case title.contains('Leaf Fall Timetable Alterations'):
                 case title.contains('Normal Weekday Timetable'):
                 case title.contains('Customer Information Systems'):
+                    item.vague = true;
                     SWT.updates.general = true;
                     SWT.updates.generalItems.push(item);
                 break;

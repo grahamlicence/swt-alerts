@@ -11,11 +11,8 @@ Array.prototype.has = function (v) {
 
 chrome.runtime.getBackgroundPage(function (background) {
 
-    console.log(background.SWT)
-
 var SWT = background.SWT || {};
 
-    console.log(SWT)
 // change preferences
 SWT.preferences = {
     open: false,
@@ -52,7 +49,13 @@ SWT.preferences = {
             
             // add issues
             items.forEach(function (el) {
-                selector.innerHTML += '<p><strong>' + el.title + '</strong>' + '<span>' + el.description + '</span><p>';
+                var html = '<p><strong>' + el.title + '</strong>' + '<span>' + el.description + '</span>';
+                if (el.vague) {
+                    html += '<a target="_blank" href="' + el.link + '">More details</a>';
+                }
+                console.log(el)
+                html += '<p>';
+                selector.innerHTML += html
             });
         }
 

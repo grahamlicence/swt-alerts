@@ -123,6 +123,9 @@ strong {
     overflow: auto;
     width: 100%;
 }
+.update-content a {
+    display: block;
+}
 .content {
     background: rgba(88, 170, 190, 0.26);
     margin: -3px 0 0;
