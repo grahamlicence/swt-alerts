@@ -4,3 +4,4 @@
 *.css.map
 node_modules
 build.zip
+build
