@@ -54,7 +54,7 @@ SWT.preferences = {
                     html += '<a target="_blank" href="' + el.link + '">More details</a>';
                 }
                 html += '<p>';
-                selector.innerHTML += html
+                selector.innerHTML += html;
             });
         }
 
@@ -140,7 +140,12 @@ SWT.preferences = {
         },
 
         autocomplete: function (e, input, autocompleteDiv) {
-            var autocomplete;
+            var autocomplete,
+                setStation = function (e) {
+                    e.preventDefault();
+                    var name = this.innerHTML;
+                    SWT.preferences.setStations.populate(this, input, autocompleteDiv);
+                };
             
             // Any letter or backspace
             if (e.keyCode >= 65 && e.keyCode <= 90 || e.keyCode === 8) {
@@ -150,11 +155,7 @@ SWT.preferences = {
             // add click events
             autocomplete = autocompleteDiv.querySelectorAll('.stationauto');
             for (var i = 0, l = autocomplete.length; i < l; i += 1) {
-                autocomplete[i].addEventListener('click', function (e) {
-                    e.preventDefault();
-                    var name = this.innerHTML;
-                    SWT.preferences.setStations.populate(this, input, autocompleteDiv);
-                });
+                autocomplete[i].addEventListener('click', setStation);
             }
         },
 

@@ -247,11 +247,9 @@ var SWT = {
             stationItems: []
         };
         
-        console.log(items)
 
         // categorise each update item
         items.forEach(SWT.categoriseItem);
-        console.log(SWT)
         // SWT.global.pub('datacat');
         chrome.runtime.sendMessage({msg: 'datacat'});
     },
