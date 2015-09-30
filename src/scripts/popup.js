@@ -53,7 +53,6 @@ SWT.preferences = {
                 if (el.vague) {
                     html += '<a target="_blank" href="' + el.link + '">More details</a>';
                 }
-                console.log(el)
                 html += '<p>';
                 selector.innerHTML += html
             });
@@ -113,8 +112,6 @@ SWT.preferences = {
 
             input.value = stationName.innerHTML;
             shortInput.value = stationName.getAttribute('data-short');
-            console.log(stationName)
-            console.log(shortInput.value)
 
             // clear auto fill list
             list.innerHTML = '';
@@ -156,7 +153,6 @@ SWT.preferences = {
                 autocomplete[i].addEventListener('click', function (e) {
                     e.preventDefault();
                     var name = this.innerHTML;
-                    console.log(name)
                     SWT.preferences.setStations.populate(this, input, autocompleteDiv);
                 });
             }
@@ -166,7 +162,6 @@ SWT.preferences = {
             var stationList;
                 stationList = autocompleteDiv.querySelectorAll('a');
 
-            console.log(stationList)
             if (stationList.length) {
                 SWT.preferences.setStations.populate(stationList[0], input, autocompleteDiv);
             }
@@ -185,7 +180,6 @@ SWT.preferences = {
 
             localStorage.from = fromShort.value;
             localStorage.to = toShort.value;
-            console.log(toShort.value)
             // localStorage.useTube = el.tubeInput.checked;
 
             fromTextField.innerHTML = fromText.length ? 'from ' + fromText : '';
@@ -243,7 +237,6 @@ SWT.preferences = {
                     SWT.preferences.setStations.autocomplete(e, inputFields[ind], autocomplete[ind]);
                 });
                 inputFields[ind].addEventListener('keydown', function (e) {
-                    console.log(e.keyCode)
                     
                     // pressed enter
                     if (e.keyCode === 13) {
@@ -276,7 +269,6 @@ SWT.preferences = {
                     name = Base.stations[point].name;
                     inputFields[ind].value = name;
                 }
-                console.log(name.lenth)
                 if (!name.length) {
                     dir = '';
                 }
