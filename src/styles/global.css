@@ -32,7 +32,7 @@ strong {
 .preferences {
     background: rgba(231, 231, 231, 0.81);
     display: none;
-    padding: 3px 0;
+    padding: 3px;
 }
 .preferences.open {
     display: block;
@@ -49,11 +49,17 @@ strong {
     width: 10px;
     height: 10px;
     background-size: contain;
+    position: absolute;
+    top: 10px;
+    right: 30px;
 }
 .btn-switch {
     background: url(../images/switch.png);
     width: 22px;
     height: 13px;
+    position: absolute;
+    top: 8px;
+    right: 5px;
 }
 #fromshort,
 #toshort {
@@ -65,10 +71,11 @@ strong {
     position: relative;
 }
 .row label {
-    width: 28px;
+    width: 32px;
     text-align: right;
     display: inline-block;
     font-size: 13px;
+    padding-right: 3px;
 }
 .row.checkbox  {
     overflow: hidden;
@@ -112,6 +119,17 @@ strong {
 
 .save {
     cursor: pointer;
+    position: absolute;
+    right: 10px;
+    bottom: 14px;
+    padding: 4px 14px;
+    border: solid 1px #000;
+    transition: background-color 0.3s;
+    border-radius: 4px;
+    text-transform: uppercase;
+}
+.save:hover {
+    background: rgba(88, 170, 190, 0.26);
 }
 
 .main {
@@ -146,6 +164,14 @@ strong {
     margin: -3px 0 0;
     background: #fff;
     position: relative;
+}
+.preferences-wrapper h3,
+.journey-set {
+    padding-left: 5px;
+    padding-right: 5px;
+}
+.journey-set {
+    margin-bottom: 5px;
 }
 .preferences-change .preferences-wrapper {
     max-height: 330px;
